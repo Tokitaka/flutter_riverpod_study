@@ -3,13 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // We create a "provider", which will store a value (here "Hello world").
 // By using a provider, this allows us to mock/override the value exposed.
-final helloWorldProvider = Provider<String>((_) {
-  return "Hello World";
-});
+// final helloWorldProvider = Provider<String>((_) {
+//   return "Hello World";
+// });
 
-final helloWorldProvider2 = Provider<String>((ref) {
-  final String value = ref.read(helloWorldProvider);
-  return "Hello World22" + value;
+
+final helloWorldProvider = Provider<String>((ref) {
+  // final String value = ref.read(helloWorldProvider);
+  return "Hello World22";
 });
 
 void main() {
@@ -27,7 +28,7 @@ void main() {
 class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final String value = ref.read(helloWorldProvider2);
+    final String value = ref.read(helloWorldProvider);
 
     return MaterialApp(
       home: Scaffold(
