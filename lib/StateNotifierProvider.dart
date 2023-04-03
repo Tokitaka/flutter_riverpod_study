@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class Counter extends StateNotifier<int> {
-  Counter() : super(0); // 최초값
+  Counter(int num) : super(num); // initialize state, 최초값
 
   void increment(){
     state++; // state 는 데이터 타입 
@@ -11,7 +11,7 @@ class Counter extends StateNotifier<int> {
 } // class 형태 : 창고
 // 2. Provider 생성 
 final counterProvider = StateNotifierProvider<Counter, int>((ref) {
-  return Counter(); // 여기서 최초값 설정 연습 
+  return Counter(0); // 여기서 최초값 설정 연습
 }); // <창고, 창고 관리 데이터>
 
 void main() {
